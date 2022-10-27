@@ -20,26 +20,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 //modificacion temporal 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendlean.web.app")
 
 @RestController
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
-    @GetMapping("personas/traer")
+    @GetMapping("/personas/traer")
     public List<Persona> getPersona(){
         return ipersonaService.gerPersona();
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("personas/crear")
+    @PostMapping("/personas/crear")
     public String createPersona(@RequestBody Persona persona){
         ipersonaService.savePersona(persona);
         return "La persona fue creada correctamente";
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("personas/borrar/{id}")
+    @DeleteMapping("/personas/borrar/{id}")
     public String deletePersona(@PathVariable Long id){
         ipersonaService.deletePersona(id);
         return "La persona fue eliminada correctamente";
