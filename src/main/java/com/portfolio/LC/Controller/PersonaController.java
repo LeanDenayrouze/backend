@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 //modificacion temporal 
-@CrossOrigin(origins = "**")
+@CrossOrigin(origins = "https://frontendlean.web.app")
 
 @RestController
 public class PersonaController {
